@@ -25,13 +25,12 @@ def getTemp():
 
 while True:
     temp = int(getTemp())
-    setPwm(1000)
     if(temp<=42000):
         setPwm(0)
-    elif(temp>56000):
+    elif(temp>54000):
         setPwm(255)
     else:
-        setPwm(int((temp - 43000)/100+125))
+        setPwm(int((temp - 43000)/100+145))
     time.sleep(0.1)
 
 
