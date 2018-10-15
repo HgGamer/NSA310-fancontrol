@@ -1,6 +1,12 @@
 import time
 path = "/sys/class/i2c-dev/i2c-0/device/0-002e/"
 
+def enable():
+    file = open(path+"pwm1_enable","w") 
+    file.write("1")
+    file.close() 
+
+
 def setPwm(pwm):
     if(pwm>255):
         pwm = 255
@@ -23,6 +29,8 @@ def getTemp():
     temps.sort()
     return temps[-1]
 
+
+enable()
 while True:
     temp = int(getTemp())
     if(temp<=42000):
